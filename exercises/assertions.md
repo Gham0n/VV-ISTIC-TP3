@@ -11,3 +11,45 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+
+1.  The assertion fails due to floating-point precision issues in computer arithmetic. Computers may not represent decimal numbers exactly, leading to small rounding errors. To address this, it's recommended to use a tolerance or delta when comparing floating-point numbers. This involves checking if the absolute difference between the expected and actual values is within an acceptable range. Adjusting the tolerance allows for more flexible comparisons in tests, accommodating the inherent limitations of floating-point arithmetic.
+
+2.  assertEquals is used for content-based equality checks, ensuring that values or objects have the same content. It is suitable for comparing primitive data types and objects where the equals method is overridden. On the other hand, assertSame checks for reference-based equality, confirming that two references point to the exact same object instance. While they produce the same result for primitive types and equivalent objects, differences arise when comparing different instances of objects with the same content, as assertSame relies on reference equality. These methods play crucial roles in ensuring accurate unit testing based on either content or reference criteria.
+
+3.  While the primary purpose of the fail method in testing frameworks is to mark code that should not be executed due to an expected exception, it can also be used in other scenarios where explicit failure is desired. One such use case is when a certain condition should never be true during the test, and its occurrence indicates an unexpected state.
+
+Use Case: Asserting a Negative Condition
+
+```
+public void testNegativeValue() {
+    int result = someOperationThatShouldNotProduceNegativeValues();
+
+    if (result < 0) {
+        fail("The result should never be a negative value.");
+    }
+
+    // Continue with other assertions or test logic
+    assertEquals(42, result);
+}
+
+```
+
+In this example, if someOperationThatShouldNotProduceNegativeValues() unexpectedly returns a negative value, the fail method is used to immediately mark the test as failed, preventing further unintended execution and providing a clear indication of the unexpected condition.
+
+This usage of fail helps in identifying issues that might not be caught by regular assertions but are still crucial for ensuring the correctness of the tested functionality.
+
+4.The assertThrows method in JUnit 5 offers several advantages over the older approach of declaring expected exceptions using annotations:
+
+Precision and Clarity:
+
+assertThrows allows for more precise and fine-grained assertions by specifying the expected exception type and providing a lambda expression for the code that should throw the exception. This makes the test code more explicit and readable.
+Dynamic Exception Type Checking:
+
+Unlike the annotation-based approach, assertThrows dynamically checks the type of the thrown exception at runtime, allowing for more flexibility in handling different exception scenarios within a single test.
+Assertion on Exception Details:
+
+assertThrows enables assertions on the exception itself, allowing for further verification of exception details, such as specific error messages or conditions related to the exception.
+Support for Checked Exceptions:
+
+While the annotation-based approach in JUnit 4 was limited to unchecked exceptions, assertThrows provides support for both checked and unchecked exceptions, expanding its applicability in various testing scenarios.
+In summary, assertThrows in JUnit 5 offers a more expressive, flexible, and precise way of handling and asserting expected exceptions, enhancing the overall quality and readability of unit tests.
