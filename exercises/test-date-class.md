@@ -52,51 +52,46 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
-TODO A METTRE EN FORME
-
 1. Input Space Partitioning:
-   Date(int day, int month, int year):
-   Characteristics:
-   Valid day (1 to 31)
-   Valid month (1 to 12)
-   Valid year (> 0)
-   Invalid day, month, or year
-   Leap year
-   isValidDate(int day, int month, int year):
-   Characteristics:
-   Valid day (1 to 31)
-   Valid month (1 to 12)
-   Valid year (> 0)
-   Invalid day, month, or year
-   Leap year
-   isLeapYear(int year):
-   Characteristics:
-   Leap year
-   Non-leap year
-   nextDate():
-   Characteristics:
-   Normal increment
-   Increment crossing month
-   Increment crossing year
-   Increment on the last day of a month
-   previousDate():
-   Characteristics:
-   Normal decrement
-   Decrement crossing month
-   Decrement crossing year
-   Decrement on the first day of a month
-   compareTo(Date other):
-   Characteristics:
-   Equal dates
-   Date1 > Date2
-   Date1 < Date2
-2. Statement Coverage Evaluation:
-   Reviewing the test cases, it seems that they cover a significant portion of the code, but there might be some edge cases missing.
+   Date Class:
+   Characteristics and Blocks:
+
+Day (Constructor):
+
+Blocks: Valid day, Invalid day (0, negative values, exceeding max for the month)
+Month (Constructor):
+
+Blocks: Valid month, Invalid month (0, negative values, exceeding 12)
+Year (Constructor):
+
+Blocks: Valid year, Invalid year (0, negative values)
+Leap Year Check (isLeapYear method):
+
+Blocks: Leap year, Non-leap year
+Comparison (compareTo method):
+
+Blocks: Equal dates, Date1 < Date2, Date1 > Date2
+Next Date (nextDate method):
+
+Blocks: Normal day change, End of month change, End of year change, Leap year end of February
+Previous Date (previousDate method):
+
+Blocks: Normal day change, Beginning of month change, Beginning of year change, Leap year beginning of March
+Invalid Date (isValidDate method):
+
+Blocks: Valid date, Invalid day, Invalid month, Invalid year
+Equals (equals method):
+
+Blocks: Equal dates, Non-equal dates
+Common Characteristics:
+
+Characteristics related to day, month, and year validity appear in multiple methods.
+
+
+2. Statement Coverage Evaluation
+On a jouté des tests et on a du corriger notre code car nous avions oublié des cas
+
 
 3. Base Choice Coverage:
-   The isLeapYear method seems to use a straightforward boolean expression. The other methods involve more complex logic, but they are likely covered by the test cases.
 
-4. Mutation Testing with PIT:
-   Unfortunately, I can't execute PIT directly, but I can guide you on how to proceed. Consider running PIT with various mutation operators to see how well your test suite detects mutations. If there are surviving mutants, you may need to add new test cases or adjust existing ones to improve coverage.
-
-Remember, these steps provide a general approach, and the specifics might vary based on the actual code implementation. You may want to use tools specific to your programming language and testing framework for more detailed analysis and coverage measurement.
+No complex conditions with multiple boolean operators are present.
