@@ -72,4 +72,7 @@ For example, if there's a condition like (A && B || C), ensure test cases coveri
 
 ### 4. Mutation Tetsing PIT
 
-Voir code
+
+![Pit_report_date](Date_index.PNG)
+
+Nous n'avons pas un score parfait mais il est pas mal.

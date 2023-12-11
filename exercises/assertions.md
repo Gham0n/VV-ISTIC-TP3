@@ -12,11 +12,17 @@ Answer the following questions:
 
 ## Answer
 
-1.  The assertion fails due to floating-point precision issues in computer arithmetic. Computers may not represent decimal numbers exactly, leading to small rounding errors. To address this, it's recommended to use a tolerance or delta when comparing floating-point numbers. This involves checking if the absolute difference between the expected and actual values is within an acceptable range. Adjusting the tolerance allows for more flexible comparisons in tests, accommodating the inherent limitations of floating-point arithmetic.
+### 1.
 
-2.  assertEquals is used for content-based equality checks, ensuring that values or objects have the same content. It is suitable for comparing primitive data types and objects where the equals method is overridden. On the other hand, assertSame checks for reference-based equality, confirming that two references point to the exact same object instance. While they produce the same result for primitive types and equivalent objects, differences arise when comparing different instances of objects with the same content, as assertSame relies on reference equality. These methods play crucial roles in ensuring accurate unit testing based on either content or reference criteria.
+The assertion fails due to floating-point precision issues in computer arithmetic. Computers may not represent decimal numbers exactly, leading to small rounding errors. To address this, it's recommended to use a tolerance or delta when comparing floating-point numbers. This involves checking if the absolute difference between the expected and actual values is within an acceptable range. Adjusting the tolerance allows for more flexible comparisons in tests, accommodating the inherent limitations of floating-point arithmetic.
 
-3.  While the primary purpose of the fail method in testing frameworks is to mark code that should not be executed due to an expected exception, it can also be used in other scenarios where explicit failure is desired. One such use case is when a certain condition should never be true during the test, and its occurrence indicates an unexpected state.
+### 2.
+
+assertEquals is used for content-based equality checks, ensuring that values or objects have the same content. It is suitable for comparing primitive data types and objects where the equals method is overridden. On the other hand, assertSame checks for reference-based equality, confirming that two references point to the exact same object instance. While they produce the same result for primitive types and equivalent objects, differences arise when comparing different instances of objects with the same content, as assertSame relies on reference equality. These methods play crucial roles in ensuring accurate unit testing based on either content or reference criteria.
+
+### 3.
+
+While the primary purpose of the fail method in testing frameworks is to mark code that should not be executed due to an expected exception, it can also be used in other scenarios where explicit failure is desired. One such use case is when a certain condition should never be true during the test, and its occurrence indicates an unexpected state.
 
 Use Case: Asserting a Negative Condition
 
@@ -38,7 +44,7 @@ In this example, if someOperationThatShouldNotProduceNegativeValues() unexpected
 
 This usage of fail helps in identifying issues that might not be caught by regular assertions but are still crucial for ensuring the correctness of the tested functionality.
 
-4.The assertThrows method in JUnit 5 offers several advantages over the older approach of declaring expected exceptions using annotations:
+### 4. The assertThrows method in JUnit 5 offers several advantages over the older approach of declaring expected exceptions using annotations:
 
 Precision and Clarity:
 

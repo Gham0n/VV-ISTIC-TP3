@@ -108,4 +108,8 @@ class Date implements Comparable<Date> {
     public static void main(String[] args) {
 
     }
+
+    public Integer getYear() {
+        return null;
+    }
 }

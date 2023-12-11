@@ -52,7 +52,7 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
-1. Input Space Partitioning:
+### 1. Input Space Partitioning:
    Date Class:
    Characteristics and Blocks:
 
@@ -87,11 +87,15 @@ Common Characteristics:
 
 Characteristics related to day, month, and year validity appear in multiple methods.
 
+### 2. Statement Coverage Evaluation
+   On a jouté des tests et on a du corriger notre code car nous avions oublié des cas
 
-2. Statement Coverage Evaluation
-On a jouté des tests et on a du corriger notre code car nous avions oublié des cas
-
-
-3. Base Choice Coverage:
+### 3. Base Choice Coverage:
 
 No complex conditions with multiple boolean operators are present.
+
+### 4. PIT Mutation
+
+![Pit_report_string](String_index.PNG)
+
+Nous n'avons pas un score parfait mais il est pas mal.

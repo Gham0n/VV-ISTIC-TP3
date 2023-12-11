@@ -108,14 +108,7 @@ class DateTest {
         assertEquals(new Date(31, 12, 9999), date.previousDate());
     }
 
-    @Test
-    void testNextDateMutantDetection() {
-        Date date = new Date(29, 2, 2020);
-        assertNotEquals(new Date(1, 3, 2020), date.nextDate()); // Should detect mutant
-    }
+    
 
-
-
-    //Problème avec la mutation 
     
 }
