@@ -12,4 +12,8 @@ Propose a solution to this problem in your new Mockito-based test cases.
 
 # Answers
 
-In these tests, Mockito.mock(SSLSocket.class) is used to create a mock object for the SSLSocket interface. Then, the when method is used to define the behavior of the mock object for the getSupportedProtocols and getEnabledProtocols methods. Finally, the verify method is used to check whether the setEnabledProtocols method was called on the mock object with the expected arguments.
+In these tests, Mockito.mock(SSLSocket.class) is used to create a mock object for the SSLSocket interface.
+
+Then, the when method is used to define the behavior of the mock object for the getSupportedProtocols and getEnabledProtocols methods. 
+
+Finally, the verify method is used to check whether the setEnabledProtocols method was called on the mock object with the expected arguments.

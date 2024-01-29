@@ -27,52 +27,54 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 ## Answer
 
 ```java
-public static boolean isBalanced(String str) {
-        Stack<Character> stack = new Stack<>();
-
-        for (char c : str.toCharArray()) {
-            if (c == '{' || c == '[' || c == '(') {
-                stack.push(c);
-            } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
-                stack.pop();
-            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
-                stack.pop();
-            } else if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
-                stack.pop();
-            } else {
-                // Unmatched closing symbol or other characters
-                return false;
+    public static boolean isBalanced(String str) {
+            Stack<Character> stack = new Stack<>();
+    
+            for (char c : str.toCharArray()) {
+                if (c == '{' || c == '[' || c == '(') {
+                    stack.push(c);
+                } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                    stack.pop();
+                } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                    stack.pop();
+                } else if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
+                    stack.pop();
+                } else {
+                    return false;
+                }
             }
+            return stack.isEmpty();
         }
-
-        // The string is balanced if the stack is empty at the end
-        return stack.isEmpty();
-    }
 ```
 
 ### 1. Input Space Partitioning:
 
-Characteristics: The input space for the isBalanced method can be partitioned based on the different types of characters in the string (e.g., '{', '}', '[', ']', '(', ')') and the placement of these characters.
-Partition Blocks:
-Opening symbols: {, [, (
-Closing symbols: }, ], )
-Empty string
+|Symbols|Result|Reason|
+| :---: | :---: | :---: |
+|Empty | True | -- |
+|Null |False| Null input string|
+|{ |False |Unmatched opening symbols|
+|} |False| Unmatched closing symbols|
+|[ ] |True| -- |
+|{()}| True | -- |
+|{)(| False |Mixed symbols with an incorrect order|
 
 ### 2. Statement Coverage:
 
-Ensure that each partition block is covered by at least one test case. Test both balanced and unbalanced scenarios.
-For example:
-"{[()]}": Balanced case with all types of symbols.
-"{[()]())}": Unbalanced case with extra closing parenthesis.
+
+![coverage.png](coverage.png)
+
 
 ### 3. Base Choice Coverage:
 
-If your code has logical conditions with more than two boolean operators, ensure that each possible combination of true/false values for those conditions is covered.
-For example, if there's a condition like (A && B || C), ensure test cases covering (true, true), (true, false), (false, true), and (false, false).
+!stack.isEmpty() : Covered by cases where closing symbols are encountered
+after opening symbols, such as ```assertTrue(StringUtils.isBalanced("{[()]}"));```
+
+stack.peek() == '{' : This is covered by test cases like ``` assertTrue(StringUtils.isBalanced("{[()]}"));```
 
 ### 4. Mutation Tetsing PIT
 
 
 ![Pit_report_date](Date_index.PNG)
 
-Nous n'avons pas un score parfait mais il est pas mal.
+For the line coverage our score is pretty acceptable, however about mutation coverage, it is a little bit low.

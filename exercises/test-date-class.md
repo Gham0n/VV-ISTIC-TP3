@@ -53,49 +53,27 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 ## Answer
 
 ### 1. Input Space Partitioning:
-   Date Class:
-   Characteristics and Blocks:
+|   Characteristics   |                                                                        Block                                                                         |
+|:-------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Date(day,mont,year) |                                                        isValidDate(day, month, year) == true                                                         |
+|         Day         | if (month == 2 && isLeapYear(year)) day = [1;29] <br/> else if (month == 2 && !isLeapYear(year)) day = [1;28] <br/>else d = [1:DAYS_IN_MONTH[month]] |
+|        month        |                                                                        [1;12]                                                                        |
+|        Year         |                                                                        year>0                                                                        |
+|  isLeapYear(year)   |                                                          year % 4 == 0 && year % 100 != 0)                                                           || (year % 400 == 0)                                                                                                                                            |
 
-Day (Constructor):
 
-Blocks: Valid day, Invalid day (0, negative values, exceeding max for the month)
-Month (Constructor):
-
-Blocks: Valid month, Invalid month (0, negative values, exceeding 12)
-Year (Constructor):
-
-Blocks: Valid year, Invalid year (0, negative values)
-Leap Year Check (isLeapYear method):
-
-Blocks: Leap year, Non-leap year
-Comparison (compareTo method):
-
-Blocks: Equal dates, Date1 < Date2, Date1 > Date2
-Next Date (nextDate method):
-
-Blocks: Normal day change, End of month change, End of year change, Leap year end of February
-Previous Date (previousDate method):
-
-Blocks: Normal day change, Beginning of month change, Beginning of year change, Leap year beginning of March
-Invalid Date (isValidDate method):
-
-Blocks: Valid date, Invalid day, Invalid month, Invalid year
-Equals (equals method):
-
-Blocks: Equal dates, Non-equal dates
-Common Characteristics:
-
-Characteristics related to day, month, and year validity appear in multiple methods.
 
 ### 2. Statement Coverage Evaluation
-   On a jouté des tests et on a du corriger notre code car nous avions oublié des cas
+
+We added some tests and had to correct our code because we forgot some cases
+
+![img.png](img.png)
 
 ### 3. Base Choice Coverage:
 
-No complex conditions with multiple boolean operators are present.
 
 ### 4. PIT Mutation
 
 ![Pit_report_string](String_index.PNG)
 
-Nous n'avons pas un score parfait mais il est pas mal.
+Result are just acceptable

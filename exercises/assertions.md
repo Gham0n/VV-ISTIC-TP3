@@ -18,7 +18,7 @@ The assertion fails due to floating-point precision issues in computer arithmeti
 
 ### 2.
 
-assertEquals is used for content-based equality checks, ensuring that values or objects have the same content. It is suitable for comparing primitive data types and objects where the equals method is overridden. On the other hand, assertSame checks for reference-based equality, confirming that two references point to the exact same object instance. While they produce the same result for primitive types and equivalent objects, differences arise when comparing different instances of objects with the same content, as assertSame relies on reference equality. These methods play crucial roles in ensuring accurate unit testing based on either content or reference criteria.
+AssertSame() is comparing the references of 2 objects while AssertEquals() checks the values
 
 ### 3.
 
